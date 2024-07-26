@@ -171,7 +171,7 @@ def main(folder_path=None, branch_name="main", api_key=None):
     run_code_review_agent(diff_result, active_branch, api_key)
 
 def cli():
-    parser = argparse.ArgumentParser(description="Process a git repository folder.")
+    parser = argparse.ArgumentParser(description="Write a PR based on git diff for a given branch")
     parser.add_argument("--folder", help="Path to the folder (default: current working directory)")
     parser.add_argument("--api-key", default=os.environ.get("ANTHROPIC_API_KEY"), help="Anthropic API key (default: environment variable ANTHROPIC_API_KEY)")
     parser.add_argument("--branch", default="main", help="Name of the branch to compare against (default: main)")
