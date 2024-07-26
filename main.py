@@ -85,16 +85,16 @@ def get_active_git_branch(folder_path):
         print(f"Error detecting git branch: {e}")
         return None
 
-def run_code_review_agent(git_diff, branch_name, api_key):
+def write_code_review_agent(git_diff, branch_name, api_key):
     # Initialize the Anthropic client
     output("Initializing the Anthropic client...", color="green")
     client = Anthropic(api_key=api_key)
 
     # Load the system prompt
     output("Loading the system prompt...", color="green")
-    system_prompt = "You are a code review agent that reviews code for potential issues."  # fallback system prompt
+    system_prompt = "You are pull request writing agent that writes detailed pull requests based on git diff."  # fallback system prompt
     try:
-        response = requests.get("https://raw.githubusercontent.com/kkeeling/code-review-agent/main/system_prompt.md")
+        response = requests.get("https://raw.githubusercontent.com/kkeeling/write-pr-agent/main/system_prompt.md")
         response.raise_for_status()
         system_prompt = response.text
     except requests.RequestException as e:
@@ -168,7 +168,7 @@ def main(folder_path=None, branch_name="sprint-main", api_key=None):
     diff_result = get_diff(folder_path, branch_name, active_branch)
     
     # Run the code review agent
-    run_code_review_agent(diff_result, active_branch, api_key)
+    write_code_review_agent(diff_result, active_branch, api_key)
 
 def cli():
     parser = argparse.ArgumentParser(description="Write a PR based on git diff for a given branch")
