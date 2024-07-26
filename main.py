@@ -124,7 +124,7 @@ def run_code_review_agent(git_diff, branch_name, api_key):
     
     return assistant_response
 
-def main(folder_path=None, branch_name="main", api_key=None):
+def main(folder_path=None, branch_name="sprint-main", api_key=None):
     # check if the API key is set
     if not api_key:
         output("ERROR: Anthropic API key is not set.", color="red")
