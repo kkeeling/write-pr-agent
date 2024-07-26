@@ -1,5 +1,5 @@
 [project]
-name = "code-review-agent"
+name = "write-pr-agent"
 version = "0.1.0"
 description = "An advanced code review agent that automates the process of writing pull requests based on git diffs. This tool analyzes changes between git branches and generates comprehensive, well-structured pull request descriptions. Leveraging the Anthropic API for intelligent analysis, it provides detailed insights into code modifications, including summaries of changes, potential impacts, and suggestions for improvements. The agent streamlines the code review workflow by automatically creating informative PR descriptions, saving time for developers and enhancing the quality of code reviews. It's designed to improve collaboration, maintain code quality, and accelerate the development process in software projects of any scale."
 authors = [{"name" = "Keenan Keeling", "email" = "kkeeling@automatastudios.com"}]
@@ -10,4 +10,4 @@ dependencies = [
 ]
 
 [project.scripts]
-code-review-agent = "code_review_agent:cli"
+write-pr-agent = "main:cli"
